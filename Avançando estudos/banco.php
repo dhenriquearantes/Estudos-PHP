@@ -25,6 +25,7 @@ $contas['123.456.489-11'] = depositar(
   $contas['123.456.489-11'],
   5000);
 
+titularUpper($contas['123.456.789-10']);
 
 foreach ($contas as $cpf => $conta) {
   exibeMensagem(
