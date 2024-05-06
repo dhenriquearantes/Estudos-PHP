@@ -27,8 +27,46 @@ $contas['123.456.489-11'] = depositar(
 
 titularUpper($contas['123.456.789-10']);
 
-foreach ($contas as $cpf => $conta) {
-  exibeMensagem(
-    "$cpf {$conta['titular']} {$conta['saldo']}"
-  );
-};
+// echo "<ul>";
+
+// foreach ($contas as $cpf => $conta) {
+//   exibeConta($conta);
+// };
+
+// echo "</ul>";
+
+// foreach ($contas as $cpf => $conta) {
+//   ['titular' => $titular, 'saldo' => $saldo] = $conta;
+//   exibeMensagem(
+//     "$cpf $titular $saldo"
+//   );
+// };
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Contas correntes</h1>
+
+  <dl>
+      <?php foreach($contas as $cpf => $conta) { ?>
+      <dt>
+        <h3><?php echo $conta['titular']; ?> - <?php echo $cpf; ?></h3>
+      </dt>
+      <dd>
+        Saldo: <?php echo  $conta['saldo']; ?> 
+      </dd>
+      <?php } ?>
+  </dl>
+
+</body>
+</html>
+
+
+

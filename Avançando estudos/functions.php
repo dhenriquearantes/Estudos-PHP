@@ -3,7 +3,7 @@
 
 function exibeMensagem($mensagem){
 
-  echo $mensagem . PHP_EOL;
+  echo $mensagem . '<br>';
 }
 
 function sacar(array $conta, float $valorASacar) {
@@ -25,7 +25,12 @@ function depositar(array $conta, float $valorADepositar) {
   return $conta;
 };
 
-function titularUpper(array $conta) {
+function titularUpper(array &$conta) {
   $conta['titular'] = mb_strtoupper($conta['titular']);
 };
+
+function exibeConta(array $conta){
+  ['titular' => $titular, 'saldo' => $saldo] = $conta;
+  echo "<li>Titular: $titular, Saldo: $saldo</li>";
+}
 
