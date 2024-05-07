@@ -1,22 +1,33 @@
 <?php
 
 require 'Conta.php';
+require 'Titular.php';
+require 'CPF.php';
 
-$primeiraConta = new Conta();
+$maria = new Titular(new CPF('964.456.123-15'), 'Maria');
+$primeiraConta = new Conta($maria);
 
-$primeiraConta->cpfTitular = '123.456.789-10';
-$primeiraConta->nomeTitular = 'Maria';
+$nuria = new Titular(new CPF('964.456.124-15'), 'Nuria');
+$segundaConta = new Conta($nuria);
+
+// $primeiraConta->cpfTitular = '123.456.789-10';
+// $primeiraConta->nomeTitular = 'Maria';
 // $primeiraConta->saldo = 100;
 
-$segundaConta = new Conta();
-
 // $primeiraConta -> sacar(1);
-$primeiraConta -> depositar(1000);
 // $primeiraConta -> transferir(50, $segundaConta);
+$primeiraConta -> depositar(1000);
+// $primeiraConta -> setNome('Tereza');
+// $primeiraConta -> setCpf('964.456.123-10');
+
+
 
 $primeiraConta -> verSaldo();
-$primeiraConta -> verNome();
-$primeiraConta -> verCpf();
+// $primeiraConta -> verNome();
+// $primeiraConta -> verCpf();
+$primeiraConta -> verNumeroDeContas();
+
 
 print_r($primeiraConta);
-print_r($segundaConta);
+
+// echo Conta::verNumeroDeContas(). PHP_EOL;

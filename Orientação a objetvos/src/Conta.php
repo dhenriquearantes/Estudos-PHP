@@ -3,24 +3,28 @@
 class Conta 
 {
 
-  public $cpfTitular;
-  public $nomeTitular;
-  private $saldo = 0;
+  private $titular;
+  private $saldo;
+  private static $numeroDeContas = 0;
 
-  public function setName(string $nameToSet) {
-    if (strlen($nameToSet) < 8) {
-        echo "Saldo indisponível";
-        return;
-      }
-      $this->nomeTitular = $nameToSet;
+  public function __construct(Titular $titular) {
+
+    
+    $this->titular = $titular;
+    $this->saldo = 0;
+
+
+    self::$numeroDeContas++;
+
   }
-  public function setCpf(string $CpfToSet) {
-    if (strlen($CpfToSet) < 8) {
-        echo "Saldo indisponível";
-        return;
-      }
-      $this->cpfTitular = $CpfToSet;
-  }
+
+
+  // public function setNome(string $nameToSet) : void {
+  //     $this->nomeTitular = $nameToSet;
+  // }
+  // public function setCpf(string $CpfToSet) : void{
+  //     $this->cpfTitular = $CpfToSet;
+  // }
 
   public function sacar(float $valorASacar) {
     if ($valorASacar > $this->saldo) {
@@ -47,15 +51,36 @@ class Conta
       $contaDestino->depositar($valorATransferir);
   }
 
-  public function verCpf(): string {
-    return $this->cpfTitular;
-  }
   public function verNome(): string {
-    return $this->nomeTitular;
+    return $this->titular->getNome();
   }
+
+  // public function verCpf(): string {
+  //   return $this->cpfTitular;
+  // }
+  // public function verNome(): string {
+  //   return $this->nomeTitular;
+  // }
+
   public function verSaldo(): float {
     return $this->saldo;
   }
+  public static function verNumeroDeContas(): int {
+    return self::$numeroDeContas;
+  }
+
+
+
+  public function __destruct(){
+
+    self::$numeroDeContas--;
+    
+    // if (self::$numeroDeContas > 2) {
+    //   echo "Há mais de uma conta ativa";
+    // }
+
+  }
+
 
 }
 ?>
