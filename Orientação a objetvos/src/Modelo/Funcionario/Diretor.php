@@ -1,9 +1,10 @@
 <?php 
 
 namespace Projeto\Banco\Modelo\Funcionario;
+use Projeto\Banco\Autenticavel;
 
 
-class Diretor extends Funcionario {
+class Diretor extends Funcionario implements Autenticavel{
   
   public function calcularBonificacao(): float
   {

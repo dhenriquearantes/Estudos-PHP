@@ -3,14 +3,16 @@
 namespace Projeto\Banco\Modelo;
 
 
-class Pessoa
+abstract class Pessoa
 {
+  use AcessoPropiedades;
   protected $nome;
   private $cpf;
 
 
   public function __construct(string $nome, CPF $cpf)
   {
+
 
     $this->validarNome($nome);
     $this->nome = $nome;

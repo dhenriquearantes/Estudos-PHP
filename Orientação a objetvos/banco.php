@@ -8,17 +8,17 @@ use Projeto\Banco\Modelo\Pessoa;
 use Projeto\Banco\Modelo\CPF;
 use Projeto\Banco\Modelo\Endereco;
 
-
+$enderecoOne = new Endereco('Acreuna', 'Sul', 'Av. Araguaia', '121');
 $nuria = new ContaPoupança(
-
-  new Titular (
-    new CPF ('123.654.789-12'),
-     'Nuria',
-    new Endereco ('Acreuna', 'Sul', 'Av Araguaia', '121')
+  new Titular(
+    new CPF('123.987.456-15'), 
+    'Nuria', 
+    $enderecoOne
   )
-  );
+);
 
 $nuria -> depositar(1000);
+$nuria -> sacar(50);
 
 print ($nuria ->verSaldo());
 

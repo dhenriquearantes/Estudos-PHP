@@ -15,6 +15,8 @@ class ControladorDeBonificacoes
     $this->totalBonificacoes += $funcionario->calcularBonificacao();
   }
 
+  
+
 
   public function verTotal(): float
   {

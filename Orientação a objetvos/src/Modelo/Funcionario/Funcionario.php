@@ -28,10 +28,7 @@ abstract class Funcionario extends Pessoa
     $this->nome = $nome;
   }
 
-  public function calcularBonificacao(): float
-  {
-    return $this->salario * 0.1;
-  }
+  abstract public function calcularBonificacao(): float;
 
   public function recebeAumento(float $valorAumento): void
   {

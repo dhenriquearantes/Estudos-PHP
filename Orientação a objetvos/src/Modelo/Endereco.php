@@ -4,6 +4,8 @@ namespace Projeto\Banco\Modelo;
 
 class Endereco {
 
+  use AcessoPropiedades;
+
   private string $cidade;
   private string $bairro;
   private string $rua;
@@ -32,6 +34,16 @@ class Endereco {
   public function verNumero(): string {
     return $this->numero;
   }
+
+
+
+  public function __toString(): string
+  {
+    return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
+  }
+
+
+
 
 }  
 
