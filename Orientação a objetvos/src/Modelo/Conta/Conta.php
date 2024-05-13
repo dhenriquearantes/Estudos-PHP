@@ -29,8 +29,7 @@ abstract class Conta
     $valorSaque = $valorASacar + $tarifaSaque;
 
     if ($valorSaque > $this->saldo) {
-      echo "Saldo indisponível";
-      return;
+        throw new SaldoInsuficienteException($valorSaque, $this->saldo);
     }
 
     $this->saldo -= $valorSaque;
@@ -39,8 +38,7 @@ abstract class Conta
   public function depositar(float $valorADepositar)
   {
     if ($valorADepositar <= 0) {
-      echo "Valor precisa ser positivo ou superior a 0";
-      return;
+        throw new \InvalidArgumentException();
     }
     $this->saldo += $valorADepositar;
   }

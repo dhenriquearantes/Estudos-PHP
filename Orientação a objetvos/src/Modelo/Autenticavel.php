@@ -1,6 +1,6 @@
 <?php 
 
-namespace Projeto\Banco;
+namespace Projeto\Banco\Modelo;
 
 interface Autenticavel 
 {

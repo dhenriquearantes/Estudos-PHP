@@ -2,7 +2,7 @@
 
 namespace Projeto\Banco\Modelo\Conta;
 
-use Projeto\Banco\Autenticavel;
+use Projeto\Banco\Modelo\Autenticavel;
 use Projeto\Banco\Modelo\CPF;
 use Projeto\Banco\Modelo\Endereco;
 use Projeto\Banco\Modelo\Pessoa;
